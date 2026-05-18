@@ -5,50 +5,76 @@ export declare class TeamsController {
     list(user: any): Promise<({
         members: {
             id: string;
-            userId: string;
             createdAt: Date;
             updatedAt: Date;
             pokeApiId: number;
             pokemonName: string;
             spriteUrl: string | null;
             isShiny: boolean;
-            isFavorite: boolean;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             gender: import(".prisma/client").$Enums.PokemonGender;
             note: string | null;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            isFavorite: boolean;
+            ability: string | null;
+            item: string | null;
+            move1: string | null;
+            move2: string | null;
+            move3: string | null;
+            move4: string | null;
+            nature: string | null;
+            ev_hp: number;
+            ev_atk: number;
+            ev_def: number;
+            ev_spa: number;
+            ev_spd: number;
+            ev_spe: number;
+            userId: string;
             teamId: string | null;
         }[];
     } & {
         id: string;
-        userId: string;
         name: string;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
     })[]>;
     create(user: any, body: {
         name: string;
     }): Promise<{
         members: {
             id: string;
-            userId: string;
             createdAt: Date;
             updatedAt: Date;
             pokeApiId: number;
             pokemonName: string;
             spriteUrl: string | null;
             isShiny: boolean;
-            isFavorite: boolean;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             gender: import(".prisma/client").$Enums.PokemonGender;
             note: string | null;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            isFavorite: boolean;
+            ability: string | null;
+            item: string | null;
+            move1: string | null;
+            move2: string | null;
+            move3: string | null;
+            move4: string | null;
+            nature: string | null;
+            ev_hp: number;
+            ev_atk: number;
+            ev_def: number;
+            ev_spa: number;
+            ev_spd: number;
+            ev_spe: number;
+            userId: string;
             teamId: string | null;
         }[];
     } & {
         id: string;
-        userId: string;
         name: string;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
     }>;
     update(user: any, id: string, body: {
         name?: string;
@@ -56,25 +82,38 @@ export declare class TeamsController {
     }): Promise<({
         members: {
             id: string;
-            userId: string;
             createdAt: Date;
             updatedAt: Date;
             pokeApiId: number;
             pokemonName: string;
             spriteUrl: string | null;
             isShiny: boolean;
-            isFavorite: boolean;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             gender: import(".prisma/client").$Enums.PokemonGender;
             note: string | null;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            isFavorite: boolean;
+            ability: string | null;
+            item: string | null;
+            move1: string | null;
+            move2: string | null;
+            move3: string | null;
+            move4: string | null;
+            nature: string | null;
+            ev_hp: number;
+            ev_atk: number;
+            ev_def: number;
+            ev_spa: number;
+            ev_spd: number;
+            ev_spe: number;
+            userId: string;
             teamId: string | null;
         }[];
     } & {
         id: string;
-        userId: string;
         name: string;
         createdAt: Date;
         updatedAt: Date;
+        userId: string;
     }) | null>;
     remove(user: any, id: string): Promise<{
         success: boolean;

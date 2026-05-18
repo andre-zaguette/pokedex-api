@@ -18,6 +18,19 @@ class UpdateUserPokemonDto {
     gender;
     note;
     status;
+    ability;
+    item;
+    move1;
+    move2;
+    move3;
+    move4;
+    nature;
+    ev_hp;
+    ev_atk;
+    ev_def;
+    ev_spa;
+    ev_spd;
+    ev_spe;
 }
 exports.UpdateUserPokemonDto = UpdateUserPokemonDto;
 __decorate([
@@ -46,4 +59,69 @@ __decorate([
     (0, class_validator_1.IsIn)(['seen', 'caught']),
     __metadata("design:type", String)
 ], UpdateUserPokemonDto.prototype, "status", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "ability", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "item", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "move1", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "move2", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "move3", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "move4", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], UpdateUserPokemonDto.prototype, "nature", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_hp", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_atk", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_def", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_spa", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_spd", void 0);
+__decorate([
+    (0, class_validator_1.IsOptional)(),
+    IsInt(),
+    __metadata("design:type", Number)
+], UpdateUserPokemonDto.prototype, "ev_spe", void 0);
 //# sourceMappingURL=update-user-pokemon.dto.js.map
