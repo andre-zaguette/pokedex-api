@@ -1,4 +1,4 @@
-import { IsBoolean, IsIn, IsOptional, IsString, MaxLength } from 'class-validator';
+import { IsBoolean, IsIn, IsInt, IsOptional, IsString, MaxLength } from 'class-validator';
 import { pokemonGenderValues, PokemonGenderValue } from '../pokemon-gender';
 
 export class UpdateUserPokemonDto {

@@ -9,24 +9,24 @@ export declare class UsersService {
     constructor(prisma: PrismaService);
     create(input: CreateUserInput): Promise<{
         id: string;
-        name: string;
         email: string;
+        name: string;
         passwordHash: string;
         createdAt: Date;
         updatedAt: Date;
     }>;
     findByEmail(email: string): Promise<{
         id: string;
-        name: string;
         email: string;
+        name: string;
         passwordHash: string;
         createdAt: Date;
         updatedAt: Date;
     } | null>;
     findById(id: string): Promise<{
         id: string;
-        name: string;
         email: string;
+        name: string;
         passwordHash: string;
         createdAt: Date;
         updatedAt: Date;

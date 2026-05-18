@@ -96,32 +96,32 @@ __decorate([
 ], UpdateUserPokemonDto.prototype, "nature", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_hp", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_atk", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_def", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_spa", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_spd", void 0);
 __decorate([
     (0, class_validator_1.IsOptional)(),
-    IsInt(),
+    (0, class_validator_1.IsInt)(),
     __metadata("design:type", Number)
 ], UpdateUserPokemonDto.prototype, "ev_spe", void 0);
 //# sourceMappingURL=update-user-pokemon.dto.js.map

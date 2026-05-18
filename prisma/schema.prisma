@@ -63,6 +63,7 @@ model UserPokemon {
   team       Team?         @relation(fields: [teamId], references: [id], onDelete: SetNull)
   user       User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 
+  @@unique([userId, pokeApiId])
   @@index([userId])
 }
 
