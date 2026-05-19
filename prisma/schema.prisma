@@ -22,6 +22,28 @@ model User {
   updatedAt    DateTime      @updatedAt
   collection   UserPokemon[]
   teams        Team[]
+
+  sentFriendships     Friendship[] @relation("sentFriendships")
+  receivedFriendships Friendship[] @relation("receivedFriendships")
+}
+
+enum FriendshipStatus {
+  PENDING
+  ACCEPTED
+}
+
+model Friendship {
+  id         String           @id @default(cuid())
+  senderId   String
+  receiverId String
+  status     FriendshipStatus @default(PENDING)
+  createdAt  DateTime         @default(now())
+  updatedAt  DateTime         @updatedAt
+
+  sender   User @relation("sentFriendships", fields: [senderId], references: [id])
+  receiver User @relation("receivedFriendships", fields: [receiverId], references: [id])
+
+  @@unique([senderId, receiverId])
 }
 
 enum PokemonStatus {
