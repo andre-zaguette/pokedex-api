@@ -4,11 +4,17 @@ export declare class TeamsController {
     constructor(teamsService: TeamsService);
     list(user: any): Promise<({
         members: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            userId: string;
+            pokeApiId: number;
+            pokemonName: string;
+            spriteUrl: string | null;
             isShiny: boolean;
             isFavorite: boolean;
             gender: import(".prisma/client").$Enums.PokemonGender;
-            note: string | null;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             ability: string | null;
             item: string | null;
             move1: string | null;
@@ -22,13 +28,7 @@ export declare class TeamsController {
             ev_spa: number;
             ev_spd: number;
             ev_spe: number;
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            userId: string;
-            pokeApiId: number;
-            pokemonName: string;
-            spriteUrl: string | null;
+            note: string | null;
             teamId: string | null;
         }[];
     } & {
@@ -42,11 +42,17 @@ export declare class TeamsController {
         name: string;
     }): Promise<{
         members: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            userId: string;
+            pokeApiId: number;
+            pokemonName: string;
+            spriteUrl: string | null;
             isShiny: boolean;
             isFavorite: boolean;
             gender: import(".prisma/client").$Enums.PokemonGender;
-            note: string | null;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             ability: string | null;
             item: string | null;
             move1: string | null;
@@ -60,13 +66,7 @@ export declare class TeamsController {
             ev_spa: number;
             ev_spd: number;
             ev_spe: number;
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            userId: string;
-            pokeApiId: number;
-            pokemonName: string;
-            spriteUrl: string | null;
+            note: string | null;
             teamId: string | null;
         }[];
     } & {
@@ -81,11 +81,17 @@ export declare class TeamsController {
         memberIds?: string[];
     }): Promise<({
         members: {
+            id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            status: import(".prisma/client").$Enums.PokemonStatus;
+            userId: string;
+            pokeApiId: number;
+            pokemonName: string;
+            spriteUrl: string | null;
             isShiny: boolean;
             isFavorite: boolean;
             gender: import(".prisma/client").$Enums.PokemonGender;
-            note: string | null;
-            status: import(".prisma/client").$Enums.PokemonStatus;
             ability: string | null;
             item: string | null;
             move1: string | null;
@@ -99,13 +105,7 @@ export declare class TeamsController {
             ev_spa: number;
             ev_spd: number;
             ev_spe: number;
-            id: string;
-            createdAt: Date;
-            updatedAt: Date;
-            userId: string;
-            pokeApiId: number;
-            pokemonName: string;
-            spriteUrl: string | null;
+            note: string | null;
             teamId: string | null;
         }[];
     } & {

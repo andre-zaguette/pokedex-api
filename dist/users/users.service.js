@@ -40,11 +40,117 @@ let UsersService = class UsersService {
     async findById(id) {
         const user = await this.prisma.user.findUnique({
             where: { id },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+                createdAt: true,
+                updatedAt: true,
+            },
         });
         if (!user) {
             throw new common_1.NotFoundException('User not found.');
         }
         return user;
+    }
+    async update(id, data) {
+        return this.prisma.user.update({
+            where: { id },
+            data: { name: data.name },
+            select: {
+                id: true,
+                name: true,
+                email: true,
+            },
+        });
+    }
+    async addFriend(userId, friendId) {
+        if (userId === friendId) {
+            throw new common_1.ConflictException('You cannot add yourself as a friend.');
+        }
+        const existing = await this.prisma.friendship.findFirst({
+            where: {
+                OR: [
+                    { senderId: userId, receiverId: friendId },
+                    { senderId: friendId, receiverId: userId },
+                ],
+            },
+        });
+        if (existing) {
+            if (existing.status === 'ACCEPTED') {
+                throw new common_1.ConflictException('Already friends.');
+            }
+            if (existing.senderId === userId) {
+                throw new common_1.ConflictException('Friend request already sent.');
+            }
+            return this.acceptFriend(userId, friendId);
+        }
+        return this.prisma.friendship.create({
+            data: {
+                senderId: userId,
+                receiverId: friendId,
+                status: 'PENDING',
+            },
+        });
+    }
+    async getFriends(userId) {
+        const friendships = await this.prisma.friendship.findMany({
+            where: {
+                OR: [
+                    { senderId: userId, status: 'ACCEPTED' },
+                    { receiverId: userId, status: 'ACCEPTED' },
+                ],
+            },
+            include: {
+                sender: {
+                    select: { id: true, name: true, email: true },
+                },
+                receiver: {
+                    select: { id: true, name: true, email: true },
+                },
+            },
+        });
+        return friendships.map((f) => (f.senderId === userId ? f.receiver : f.sender));
+    }
+    async getPendingRequests(userId) {
+        return this.prisma.friendship.findMany({
+            where: {
+                receiverId: userId,
+                status: 'PENDING',
+            },
+            include: {
+                sender: {
+                    select: { id: true, name: true, email: true },
+                },
+            },
+        });
+    }
+    async acceptFriend(userId, friendId) {
+        const friendship = await this.prisma.friendship.findUnique({
+            where: {
+                senderId_receiverId: {
+                    senderId: friendId,
+                    receiverId: userId,
+                },
+            },
+        });
+        if (!friendship) {
+            throw new common_1.NotFoundException('Friend request not found.');
+        }
+        return this.prisma.friendship.update({
+            where: { id: friendship.id },
+            data: { status: 'ACCEPTED' },
+        });
+    }
+    async removeFriend(userId, friendId) {
+        return this.prisma.friendship.deleteMany({
+            where: {
+                OR: [
+                    { senderId: userId, receiverId: friendId },
+                    { senderId: friendId, receiverId: userId },
+                ],
+            },
+        });
     }
 };
 exports.UsersService = UsersService;
